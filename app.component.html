@@ -1,0 +1,167 @@
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
+<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
+<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * Delete the template below * * * * * * * * * -->
+<!-- * * * * * * * to get started with your project! * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+<style>
+  :host {
+    --primary-color: #4a90e2;
+    --secondary-color: #f5f7fa;
+    --text-color-dark: #333;
+    --text-color-light: #777;
+    --card-bg: #ffffff;
+    --card-border: #e0e0e0;
+
+    font-family: 'Inter', Arial, sans-serif;
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    background: var(--secondary-color);
+    color: var(--text-color-dark);
+    font-size: 16px;
+    line-height: 1.5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .container {
+    width: 90%;
+    max-width: 900px;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--card-border);
+    padding-bottom: 10px;
+  }
+
+  .header h1 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin: 0;
+  }
+
+  .add-task-btn {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  .add-task-btn:hover {
+    background: darken(var(--primary-color), 10%);
+  }
+
+  .task-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .task-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    transition: box-shadow 0.3s ease;
+  }
+
+  .task-item:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .task-item .task-info {
+    flex: 1;
+    margin-right: 15px;
+  }
+
+  .task-item .task-info h3 {
+    margin: 0;
+    font-size: 1rem;
+    color: var(--text-color-dark);
+  }
+
+  .task-item .task-info p {
+    margin: 5px 0 0;
+    font-size: 0.875rem;
+    color: var(--text-color-light);
+  }
+
+  .task-actions {
+    display: flex;
+    gap: 10px;
+  }
+
+  .task-actions button {
+    border: none;
+    padding: 8px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 0.875rem;
+  }
+
+  .btn-edit {
+    background: #ffcc00;
+    color: #fff;
+  }
+
+  .btn-edit:hover {
+    background: #e6b800;
+  }
+
+  .btn-delete {
+    background: #ff4444;
+    color: #fff;
+  }
+
+  .btn-delete:hover {
+    background: #cc0000;
+  }
+
+  .btn-done {
+    background: #4caf50;
+    color: white;
+  }
+
+  .btn-done:hover {
+    background: #388e3c;
+  }
+</style>
+
+
+
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * The content above * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * * -->
+<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * End of Placeholder  * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+
+<router-outlet />

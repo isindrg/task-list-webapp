@@ -1,0 +1,107 @@
+<div class="task-container">
+    <h2>Task List</h2>
+
+    <!-- Filtering and Sorting Section -->
+    <div class="filter-sort">
+        <!-- Filter by Contact Person -->
+        <label for="filterContactPerson">Filter by Contact Person:</label>
+        <select id="filterContactPerson" [(ngModel)]="filter.contactPerson" (change)="applyFilters()">
+            <option value="">All</option>
+            <option *ngFor="let person of getUniqueContactPersons()" [value]="person">{{ person }}</option>
+        </select>
+
+        <!-- Filter by Task Type -->
+        <label for="filterTaskType">Filter by Task Type:</label>
+        <select id="filterTaskType" [(ngModel)]="filter.taskType" (change)="applyFilters()">
+            <option value="">All</option>
+            <option *ngFor="let type of getUniqueTaskTypes()" [value]="type">{{ type }}</option>
+        </select>
+
+        <!-- Filter by Status -->
+        <label for="filterStatus">Filter by Status:</label>
+        <select id="filterStatus" [(ngModel)]="filter.status" (change)="applyFilters()">
+            <option value="">All</option>
+            <option value="open">Open</option>
+            <option value="closed">Closed</option>
+        </select>
+
+        <!-- Sorting Section -->
+        <label for="sortBy">Sort By:</label>
+        <select id="sortBy" [(ngModel)]="sortBy" (change)="applySorting()">
+            <option value="entity_name">Entity Name</option>
+            <option value="task_type">Task Type</option>
+            <option value="created_at">Creation Date</option>
+            <option value="time_of_task">Time of Task</option>
+        </select>
+    </div>
+
+    <!-- Task Creation Form -->
+    <form (ngSubmit)="addTask()" class="task-form">
+        <div class="form-group">
+            <input
+                type="text"
+                [(ngModel)]="newTask.entity_name"
+                name="entity_name"
+                placeholder="Entity Name"
+                required
+                class="form-input"
+            />
+        </div>
+        <div class="form-group">
+            <input
+                type="text"
+                [(ngModel)]="newTask.task_type"
+                name="task_type"
+                placeholder="Task Type"
+                required
+                class="form-input"
+            />
+        </div>
+        <div class="form-group">
+            <input
+                type="datetime-local"
+                [(ngModel)]="newTask.time_of_task"
+                name="time_of_task"
+                required
+                class="form-input"
+            />
+        </div>
+        <div class="form-group">
+            <input
+                type="text"
+                [(ngModel)]="newTask.contact_person"
+                name="contact_person"
+                placeholder="Contact Person"
+                required
+                class="form-input"
+            />
+        </div>
+        <div class="form-group">
+            <textarea
+                [(ngModel)]="newTask.note"
+                name="note"
+                placeholder="Note (optional)"
+                class="form-textarea"
+            ></textarea>
+        </div>
+        <button type="submit" class="form-button">Add Task</button>
+    </form>
+
+    <!-- Task List -->
+    <ul class="task-list">
+        <li *ngFor="let task of filteredTasks()" class="task-item">
+            <span>
+                <strong>{{ task.entity_name }}</strong> - 
+                {{ task.task_type }} - 
+                {{ task.status }}
+            </span>
+            <span class="task-datetime">
+                (Due: {{ task.time_of_task | date:'short' }})
+            </span>
+            <div class="task-actions">
+                <button (click)="updateTask(task)" class="task-button">Edit</button>
+                <button (click)="deleteTask(task.id)" class="task-button">Delete</button>
+            </div>
+        </li>
+    </ul>
+</div>
