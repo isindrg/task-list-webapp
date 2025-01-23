@@ -8,7 +8,8 @@ import os
 app = Flask(__name__)
 
 # Enable CORS for cross-origin requests
-CORS(app, origins=["http://localhost:4200"])  # Update this with your Angular app URL
+CORS(app, resources={r"/*": {"origins": ["http://tasklist-frontend.s3-website.eu-north-1.amazonaws.com", "http://localhost:4200"]}})
+app.config['CORS_HEADERS'] = 'Content-Type'
 
 # Database configuration
 basedir = os.path.abspath(os.path.dirname(__file__))
